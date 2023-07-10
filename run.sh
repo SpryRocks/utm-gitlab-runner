@@ -7,7 +7,7 @@ source ${currentDir}/base.sh # Get variables from base script.
 
 VM_IP=$(_get_vm_ip)
 
-ssh -i /Users/user/gitlab-utm/guest.pem -o StrictHostKeyChecking=no -o BatchMode=yes ${VM_USER}@${VM_IP} /bin/bash < "${1}"
+ssh -i /Users/user/gitlab-utm/guest.pem -o StrictHostKeyChecking=no -o BatchMode=yes ${VM_USER}@${VM_IP} /bin/bash --login < "${1}"
 if [ $? -ne 0 ]; then
     # Exit using the variable, to make the build as failure in GitLab
     # CI.
