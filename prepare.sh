@@ -9,14 +9,14 @@ source ${currentDir}/base.sh # Get variables from base script.
 utmctl clone ${BASE_VM_ID} --name ${CLONE_VM_NAME}
 
 # Set unique Network settings
-/usr/bin/osascript /Users/user/gitlab-utm/utm-net-set.scpt "${CLONE_VM_NAME}"
+/usr/bin/osascript $(dirname $0)/utm-net-set.scpt "${CLONE_VM_NAME}"
 
 # Start VM
 date
 utmctl start ${CLONE_VM_NAME}
 
 date
-/usr/bin/osascript /Users/user/gitlab-utm/utm-net-get.scpt "${CLONE_VM_NAME}"
+/usr/bin/osascript $(dirname $0)/utm-net-get.scpt "${CLONE_VM_NAME}"
 
 
 # Wait for VM to get IP
