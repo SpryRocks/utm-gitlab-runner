@@ -11,4 +11,4 @@ set -eo pipefail
 utmctl stop ${CLONE_VM_NAME} --kill
 
 # Delete VM disk.
-/usr/bin/osascript /Users/user/gitlab-utm/utm-del.scpt ${CLONE_VM_NAME}
+/usr/bin/osascript ${currentDir}/utm-del.scpt ${CLONE_VM_NAME}
