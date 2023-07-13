@@ -45,7 +45,7 @@ date
 # Wait for ssh to become available
 echo "Waiting for sshd to be available"
 for i in $(seq 1 30); do
-    if ssh -i ${currentDir}/guest.pem -o StrictHostKeyChecking=no -o BatchMode=yes -o ConnectTimeout=1 ${VM_USER}@${VM_IP} echo "ok" 2>/dev/null; then
+    if ssh -i ${currentDir}/guest.pem -o StrictHostKeyChecking=no -o BatchMode=yes -o UserKnownHostsFile=/dev/null -o GlobalKnownHostsFile=/dev/null -o ConnectTimeout=1 ${VM_USER}@${VM_IP} echo "ok" 2>/dev/null; then
         break
     fi
 
